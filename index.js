@@ -1,12 +1,12 @@
 var express = require('express');
 var crypto = require('crypto');  //引入加密模块
 var config = require('./config');//引入配置文件
-var http = require('http');
+// var http = require('http');
 
 var app = express();
 
 
-app.get('/wx', function (req, res) {
+app.get('/', function (req, res) {
 
     //1.获取微信服务器Get请求的参数 signature、timestamp、nonce、echostr
     var signature = req.query.signature,//微信加密签名
@@ -33,7 +33,7 @@ app.get('/wx', function (req, res) {
 });
 
 
-var server = app.listen(3000, function () {
+var server = app.listen(80, function () {
     var host = server.address().address;
     var port = server.address().port;
     console.log('Example app listening at http://%s:%s', host, port);
