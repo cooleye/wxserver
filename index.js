@@ -2,6 +2,7 @@ var express = require('express');
 var crypto = require('crypto');  //引入加密模块
 var config = require('./config');//引入配置文件
 // var http = require('http');
+var request = require('request');
 
 var app = express();
 
@@ -31,6 +32,15 @@ app.get('/', function (req, res) {
         res.send('mismatch');
     }
 });
+
+const getAccessToken = () =>{
+
+    request('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='+config.appId+'&secret='+config.appSecret, function (error, response, body) {
+        console.log('error:', error); // Print the error if one occurred
+        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+        console.log('body:', body); // Print the HTML for the Google homepage.
+    });
+}
 
 
 var server = app.listen(80, function () {
