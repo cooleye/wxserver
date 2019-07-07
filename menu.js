@@ -30,21 +30,21 @@ var menu = {
                     "name" : "test1",
                     "key" : "V1001_MY_ACCOUNT"
                 }, {
-                    "type" : "click",
-                    "name" : "test2",
-                    "key" : "V1002_BID_PROJECTS"
+                    "type": "scancode_waitmsg", 
+                    "name": "扫码带提示", 
+                    "key": "rselfmenu_0_0"
                 }, {
-                    "type" : "click",
-                    "name" : "test3",
-                    "key" : "V1003_RETURN_PLAN"
+                    "type": "pic_photo_or_album", 
+                    "name": "拍照或者相册发图", 
+                    "key": "rselfmenu_1_1"
                 }, {
-                    "type" : "click",
-                    "name" : "test4",
-                    "key" : "V1004_TRANS_DETAIL"
+                    "name": "发送位置", 
+                    "type": "location_select", 
+                    "key": "rselfmenu_2_0"
                 }, {
-                    "type" : "click",
-                    "name" : "test5",
-                    "key" : "V1005_REGISTER_BIND"
+                    "type": "view_limited", 
+                    "name": "图文消息", 
+                    "media_id": "MEDIA_ID2"
                 }
             ]
         }, {
