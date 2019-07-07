@@ -41,10 +41,6 @@ var menu = {
                     "name": "发送位置", 
                     "type": "location_select", 
                     "key": "rselfmenu_2_0"
-                }, {
-                    "type": "view_limited", 
-                    "name": "图文消息", 
-                    "media_id": "MEDIA_ID2"
                 }
             ]
         }, {
