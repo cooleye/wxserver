@@ -99,6 +99,6 @@ function deletemenu() {
         });
     })
 }
-// deletemenu() //调用
+deletemenu() //调用
 
-createmenu()
+// createmenu()
