@@ -6,7 +6,7 @@ var request = require('request');
 
 var app = express();
 
-
+//验证服务器有效
 app.get('/', function (req, res) {
 
     //1.获取微信服务器Get请求的参数 signature、timestamp、nonce、echostr
