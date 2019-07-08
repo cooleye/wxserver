@@ -6,6 +6,7 @@ var config = require('./config');//引入配置文件
 var appId = config.appId;
 var appSecret = config.appSecret;
 
+//获取touken
 function getToKen(appId, appSecret) {
 
     return new Promise(function (resolve, reject) {
@@ -23,43 +24,41 @@ function getToKen(appId, appSecret) {
 }
 //menu为创建自定义菜单的具体内容，也就是post到微信服务器的body
 var menu = {
-    "button": [{
-        "name": "我的账号",
-        "sub_button": [{
-            "type": "click",
-            "name": "test1",
-            "key": "V1001_MY_ACCOUNT"
-        }, {
-            "type": "click",
-            "name": "test2",
-            "key": "V1002_BID_PROJECTS"
-        }, {
-            "type": "click",
-            "name": "test3",
-            "key": "V1003_RETURN_PLAN"
-        }, {
-            "type": "click",
-            "name": "test4",
-            "key": "V1004_TRANS_DETAIL"
-        }, {
-            "type": "click",
-            "name": "test5",
-            "key": "V1005_REGISTER_BIND"
-        }
-        ]
-    }, {
-        "type": "view",
-        "name": "百度一下",
-        "url": "http://www.baidu.com/"
-    }
-    ]
-};
+    "button":[
+    {    
+         "type":"click",
+         "name":"今日歌曲",
+         "key":"V1001_TODAY_MUSIC"
+     },
+     {
+          "name":"菜单",
+          "sub_button":[
+          {    
+              "type":"view",
+              "name":"搜索",
+              "url":"http://www.soso.com/"
+           },
+           {
+                "type":"miniprogram",
+                "name":"wxa",
+                "url":"http://mp.weixin.qq.com",
+                "appid":"wx286b93c14bbf93aa",
+                "pagepath":"pages/lunar/index"
+            },
+           {
+              "type":"click",
+              "name":"赞一下我们",
+              "key":"V1001_GOOD"
+           }]
+      }]
+}
 
 function createmenu() {
     var post_str = new Buffer(JSON.stringify(menu));   //先将menu转成JSON数据格式，在赋给post_srt数组
 
     //调用getToken函数，getToken函数执行完，接下来才执行then函数中的匿名函数,其中，access_token为返回来的参数。
-    getToKen(appId, appSecret).then(function (access_token) {
+    getToKen(appId, appSecret)
+    .then(function (access_token) {
         var post_options = {
             host: 'api.weixin.qq.com',
             port: '443',
